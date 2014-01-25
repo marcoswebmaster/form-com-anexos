@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+
+<html lang="pt-br" class="no-js">
+<head>
+<script type="text/javascript" language="javascript">
+function valida_form (){
+var filter = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+if(!filter.test(document.getElementById("email").value)){
+alert('Por favor, digite o email corretamente');
+document.getElementById("email").focus();
+return false
+}
+var x=document.forms["dados"]["name"].value;
+if (x==null || x=="Nome")
+  {
+  alert("Insira seu nome");
+  return false;
+  }
+  
+var x=document.forms["dados"]["text"].value;
+if (x==null || x=="Mensagem")
+  {
+  alert("Insira sua Mensagem");
+  return false;
+  }
+}
+</script>
+
+</head>
+<body>
+<form class="form" id="contatoform" action="envia.php" onsubmit="return valida_form(this)" method="post" name="dados" style="margin-left: 15px;" ENCTYPE="multipart/form-data">
+
+  <p class="name">
+  	<input type="text" name="name" id="name" value="Nome" onfocus="if (this.value == 'Nome') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Nome';}" />
+		
+	</p>
+
+	<p class="email">
+		<input type="email" name="email" id="email" value="E-Mail" onfocus="if (this.value == 'E-Mail') {this.value = '';}" onblur="if (this.value == '') {this.value = 'E-Mail';}" />
+		
+	</p>
+
+	<p class="text">
+		<textarea name="text" id="text" value="Mensagem" onfocus="if (this.value == 'Mensagem') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Mensagem';}" >Mensagem</textarea>
+	</p>
+	
+	
+	
+<input type="file" id="file" name="files[]" multiple="multiple" />
+
+
+
+
+
+
+
+	<p class="submit">
+		<input name="Submit" type="submit" class="formobjects" value="&gt; Enviar">
+	</p>
+
+</form>
+</body>
+</html>
